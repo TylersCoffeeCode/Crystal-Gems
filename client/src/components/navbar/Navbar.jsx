@@ -1,32 +1,48 @@
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom'
+import { bubble as Menu } from 'react-burger-menu';
+import './Navbar.css'
+
+
+
+
+
 const Navbar = () => {
+
+
+    const [showMenu, setShowMenu] = useState(false);
+
+    const handleMenuClick = () => {
+        setShowMenu(!showMenu);
+    };
+
   return (
     <nav className='nav'>
             <div className='nav-items'>
+                <li className='logo'>
+                    CRYSTAL*<span className='spanLogo'>GEMS</span>
+                </li>
                 <ul className={`items ${showMenu ? 'show' : ''}`}>
                     <li className="item">
-                        <Link onClick={() => onNavClick('hero')}>Home</Link>
+                        <Link>CATALOGUE</Link>
                     </li>
                     <li className="item">
-                        <Link onClick={() => onNavClick('about')}>About</Link>
+                        <Link>LEARN</Link>
                     </li>
                     <li className="item">
-                        <Link onClick={() => onNavClick('projects')}>Projects</Link>
+                        <Link>CONTACT</Link>
                     </li>
                     <li className="item">
-                        <Link onClick={()=> onNavClick('contact')}>Contact Me</Link>
-                    </li>
-                    <li className="item">
-                        <a href={pdf} target="_blank">Resume</a>
+                        <Link>ABOUT</Link>
                     </li>
                 </ul>
             </div>
 
             <Menu right>
-                <Link onClick={() => onNavClick('hero')} className="menu-item"><ImHome /> Home</Link>
-                <Link onClick={() => onNavClick('about')} className="menu-item"><BsPersonCircle /> About</Link>
-                <Link onClick={() => onNavClick('projects')} className="menu-item"><FaBox /> Projects</Link>
-                <a href={pdf} target="_blank"><BsFileEarmarkText />Resume</a>
-                <Link onClick={() => onNavClick('contact')}>Contact Me</Link>
+                <Link className="menu-item">CATALOGUE</Link>
+                <Link className="menu-item">LEARN</Link>
+                <Link className="menu-item"> CONTACT</Link>
+                <Link>ABOUT</Link>
             </Menu>
         </nav>
   )
